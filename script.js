@@ -1,4 +1,4 @@
-// Seleção de elementos do slider
+
 let prevButton = document.getElementById("prev");
 let nextButton = document.getElementById("next");
 let container = document.querySelector(".container");
@@ -11,7 +11,6 @@ let active = 0;
 let firstPosition = 0;
 let lastPosition = items.length - 1;
 
-// Função para atualizar o slider
 function setSlider() {
   let itemOld = container.querySelector(".list .item.active");
   itemOld.classList.remove("active");
@@ -28,7 +27,6 @@ function setSlider() {
   numberIndicator.innerHTML = active + 1;
 }
 
-// Navegação do slider
 nextButton.onclick = () => {
   active = active + 1 > lastPosition ? 0 : active + 1;
   setSlider();
@@ -39,7 +37,6 @@ prevButton.onclick = () => {
   setSlider();
 };
 
-// Modal - Abrir e Fechar
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("close-modal");
 const closeButton = document.getElementById("close");
@@ -54,10 +51,9 @@ const infoButtons = document.querySelectorAll(".info");
 
 infoButtons.forEach((button, index) => {
   button.addEventListener("click", () => {
-    // Abre a modal ao clicar no botão "Saiba Mais"
+    
     modal.style.display = "flex";
 
-    // Atualiza a descrição dentro da modal de acordo com o índice do botão clicado
     modalDescription.textContent = descriptions[index];
   });
 });
@@ -70,12 +66,11 @@ closeModal.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-// Fecha a modal se o usuário clicar fora dela
+
 window.addEventListener("click", (event) => {
   if (event.target === modal) {
     modal.style.display = "none";
   }
 });
 
-// Inicializa o slider
 setSlider();
