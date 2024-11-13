@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: black;
+  color: #fff;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+header {
+  position: fixed;
+  width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 600px;
+  gap: 10%;
+  z-index: 2;
+
+  & img {
+    width: 300px;
+  }
+  & nav {
+    & ul {
+      display: grid;
+      grid-template-columns: repeat(3, 200px);
+    }
+  }
+}
+
+section {
+  background-image: radial-gradient(#686363, #141414);
+  height: 100vh;
+  position: relative;
+
+  & .list {
+    width: 70vw;
+    margin: auto;
+    height: 100%;
+    position: relative;
+
+    & .item {
+      position: absolute;
+      inset: 0;
+
+      & .tenis-img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 70%;
+
+        & img {
+          width: 100%;
+          transform: rotate(-25deg);
+        }
+      }
+      & .content {
+        position: absolute;
+        right: 100px;
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        gap: 20px;
+
+        & .tenis-info {
+          font-weight: bold;
+        }
+        & h2 {
+          font-size: 5em;
+          line-height: 1em;
+          font-family: "League Gothi", sans-serif;
+        }
+        & .descrição {
+          color: #ffffff;
+          font-size: right;
+          max-width: 400px;
+        }
+        & .info {
+          border-radius: 30px;
+          height: 35px;
+          width: 120px;
+          text-transform: uppercase;
+          border: 2px solid #686363;
+          background-color: green;
+          color: black;
+          cursor: pointer;
+          font-weight: bold;
+          font-family: "League Gothi", sans-serif;
+        }
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 200px;
+      width: 100%;
+      top: 50%;
+      border-top: 1px solid #fff;
+    }
+  }
+  .arrows {
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -25px);
+    justify-content: space-between;
+
+    & button:nth-child(1) {
+      & img {
+        transform: scale(-1);
+      }
+    }
+
+    & button {
+      top: 60%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+
+      & img {
+        width: 30px;
+        cursor: pointer;
+      }
+
+      &:hover {
+        background-color: #1d5a1d;
+      }
+    }
+  }
+}
+
+.indicadores {
+  position: absolute;
+  top: 50%;
+  height: 200px;
+  left: 50%;
+  width: 90vw;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 15px;
+
+  & .number {
+    font-size: 5em;
+    font-family: "League Gothi", sans-serif;
+  }
+
+  & ul {
+    display: flex;
+    gap: 10px;
+
+    & li {
+      width: 50px;
+      height: 5px;
+      background-color: #1d5a1d;
+      border-radius: 5px;
+      transition: 0.5s;
+    }
+    & .primeiro {
+      background-color: aliceblue;
+    }
+  }
+}
+
+section {
+  & .list {
+    --calculation: 1;
+
+    & .item {
+      transform: translateX(calc(100vw * var(--calculation)));
+      transition: 0.5s;
+      opacity: 0;
+
+      & .tenis-img {
+        & img {
+          transform: rotate(0);
+          transition: 0.5s;
+          transition-delay: 0.3s;
+        }
+      }
+      & .content {
+        & .tenis-info,
+        h2,
+        .descrição,
+        .info {
+          transform: translateX(calc(200px * var(--calculation)));
+          transition: 0.7s;
+          transition-delay: 0.3s;
+          opacity: 0;
+        }
+        & h2 {
+          transition-delay: 0.5s;
+        }
+        & .descrição {
+          transition-delay: 0.7s;
+        }
+        & .info {
+          transition-delay: 0.9s;
+        }
+      }
+    }
+
+    & .active {
+      transform: translateX(0);
+      transition: 0.5s;
+      opacity: 1;
+
+      & .tenis-img {
+        & img {
+          transform: rotate(-20deg);
+        }
+      }
+
+      & .content {
+        & .tenis-info,
+        h2,
+        .descrição,
+        .info {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background-color: rgba(68, 63, 63, 0.938); 
+  padding: 8%;
+  border-radius: 80px;
+  width: 80%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgb(243, 240, 240); 
+}
+.close {
+  color: #000000e5;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(26, 23, 23);
+  text-decoration: none;
+  cursor: pointer;
+}
+#close-modal {
+  background-color: green;
+  color: rgb(255, 251, 251);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#close-modal:hover {
+  background-color: #1d5a1d;
+}

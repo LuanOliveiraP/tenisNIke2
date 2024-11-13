@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  background: #3b3b3b;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.container {
+  background-color: #fafafa;
+  border-radius: 14px;
+  margin: 14px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: 0 3px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(120deg, #b5c2c5 0%, #5c5d5f 100%);
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.form {
+  padding: 15px;
+}
+
+.form-content {
+  margin-bottom: 6px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.form-content label {
+  display: inline-block;
+  margin-bottom: 3px;
+}
+
+.form-content input {
+  display: block;
+  width: 100%;
+  border: 2px solid #dfdfdf;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.form-content a {
+  left: 0;
+  position: absolute;
+  visibility: hidden;
+  bottom: -8px;
+}
+
+.form button {
+  color: #fff;
+  background-color: #5c5d5f;
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.form-content.error input {
+  border-color: #ff3b25;
+}
+
+.form-content.error a {
+  color: #ff3b25;
+  visibility: visible;
+}
